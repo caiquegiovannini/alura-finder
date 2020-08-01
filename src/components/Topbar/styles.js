@@ -22,7 +22,7 @@ Header.Nav = styled.nav`
       width: 65px;
 
     @media (min-width: 768px) {
-      width: 105px;
+      width: 70px;
     }
   }
 `;
@@ -31,6 +31,15 @@ Header.Links = styled.div`
   display: flex;
   justify-content: space-evenly;
   width: 70%;
+  margin: auto;
+
+  span {
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      opacity: .6;
+    }
+  }
 `;
 
 export const HeaderContainer = styled.div`

@@ -16,11 +16,11 @@ function Topbar() {
 
           <Header.Links>
             <Link to="/meuscursos">
-              Meus Cursos
+              <span>Meus Cursos</span>
             </Link>
 
             <a href="https://www.alura.com.br/">
-              Alura
+              <span>Alura</span>
             </a>
           </Header.Links>
         </Header.Nav>
