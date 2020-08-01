@@ -1,9 +1,11 @@
 import React from 'react';
 
-function App() {
+import Topbar from '../../components/Topbar';
+
+function Home() {
   return (
-    <h1>Alura-Finder</h1>
+    <Topbar />
   );
 }
 
-export default App;
+export default Home;
