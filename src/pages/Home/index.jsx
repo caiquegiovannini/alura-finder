@@ -2,25 +2,29 @@ import React, { useEffect, useState } from 'react';
 import coursesRepository from '../../repositories/courses';
 
 import Topbar from '../../components/Topbar';
-import Courses from '../../components/Courses';
+import Finder from '../../components/Finder';
+import CoursesList from '../../components/CoursesList';
 
 function Home() {
-  const [courses, setCourses] = useState([]);
+  const [coursesFinded, setCoursesFinded] = useState([]);
+  const [courseLevels, setCourseLevels] = useState([]);
 
-  function takeSome(array) {
-    let someCourses = [];
-    
-    for (let i=0; i<20; i++) {
-      someCourses.push(array[i]);
-    }
-  
-    return someCourses;
+  function handleFind(courses) {
+    setCoursesFinded(courses);
   }
 
   useEffect(() => {
     coursesRepository.getAll()
       .then((allCourses) => {
-        setCourses(takeSome(allCourses));
+        const levels = allCourses.map((course) => {
+          return course.nivel;
+        });
+
+        const uniqueLevels = levels.reduce((unique, item) => {
+          return unique.includes(item) ? unique : [...unique, item]
+        }, []);
+
+        setCourseLevels(uniqueLevels);
       });
   }, []);
 
@@ -28,7 +32,9 @@ function Home() {
     <>
       <Topbar />
 
-      <Courses courses={courses} />
+      <Finder levels={courseLevels} setCourses={handleFind} />
+
+      <CoursesList courses={coursesFinded} />
     </>
   );
 }

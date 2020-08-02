@@ -4,7 +4,7 @@ import { CoursesContainer } from './styles';
 
 import Course from "./Course";
 
-function Courses({ courses }) {
+function CoursesList({ courses }) {
   return (
     <CoursesContainer>
       {
@@ -16,4 +16,4 @@ function Courses({ courses }) {
   );
 }
 
-export default Courses;
+export default CoursesList;

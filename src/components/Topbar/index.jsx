@@ -15,6 +15,10 @@ function Topbar() {
           </Link>
 
           <Header.Links>
+            <Link to="/courses">
+              <span>Cursos</span>
+            </Link>
+
             <Link to="/meuscursos">
               <span>Meus Cursos</span>
             </Link>
