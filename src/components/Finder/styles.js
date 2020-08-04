@@ -3,9 +3,13 @@ import styled from 'styled-components';
 export const FinderSection = styled.section`
   background-color: var(--primary);
   width: 100%;
-  height: 100vh;
+  height: 91vh;
 
   color: var(--white);
+
+  @media (min-width: 768px) {
+    height: 88vh;
+  }
 `;
 
 export const FinderContainer = styled.div`
@@ -92,8 +96,12 @@ export const Speech = styled.div`
   }
 
   h1 {
-    font-size: 1rem;
+    font-size: 0.93rem;
     line-height: 1.5rem;
+
+    @media (min-width: 780px) {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -121,21 +129,31 @@ export const FormField = styled.div`
 `;
 
 export const Button = styled.button`
+  position: fixed;
+  bottom: 150px;
+  left: 10px;
   background-color: var(--secondary);
   padding: 16px 9px;
-  width: 10rem;
+  width: 8rem;
   border: none;
   border-radius: 4px;
   margin-top: 30px;
   outline: 0;
 
   color: white;
-  font-size: 1.3rem;
+  font-size: 1rem;
   
   cursor: pointer;
   transition: .2s;
 
   &:hover {
     opacity: .9;
+  }
+
+  @media (min-width: 780px) {
+    position: initial;
+    width: 10rem;
+
+    font-size: 1.3rem;
   }
 `;

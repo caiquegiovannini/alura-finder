@@ -3,12 +3,15 @@ import styled from 'styled-components';
 export const Header = styled.header`
   background-color: var(--primary);
   width: 100%;
+  height: 10vh;
 
   color: var(--white);
   font-size: 11px;
   text-transform: uppercase;
 
   @media (min-width: 768px) {
+    height: 12vh;
+
     font-size: 12px;
     font-weight: bold;
   }
