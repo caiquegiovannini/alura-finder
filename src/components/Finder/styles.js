@@ -75,7 +75,7 @@ export const Speech = styled.div`
   z-index: 1;
 
   color: #000;
-  font-size: 0.5rem;
+  font-size: 0.4rem;
 
   @media (min-width: 780px) {
     font-size: 1rem;
@@ -96,7 +96,7 @@ export const Speech = styled.div`
   }
 
   h1 {
-    font-size: 0.93rem;
+    font-size: 0.9rem;
     line-height: 1.5rem;
 
     @media (min-width: 780px) {
@@ -130,7 +130,7 @@ export const FormField = styled.div`
 
 export const Button = styled.button`
   position: fixed;
-  bottom: 150px;
+  bottom: 5px;
   left: 10px;
   background-color: var(--secondary);
   padding: 16px 9px;
