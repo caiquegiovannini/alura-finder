@@ -17,7 +17,7 @@ import PauloBase from '../../assets/img/paulo-base.png';
 import PauloFace1 from '../../assets/img/rosto1.png';
 import PauloFace2 from '../../assets/img/rosto2.png';
 
-function Finder({ levels, time }) {
+function Finder({ levels, times }) {
   /* FORM STATES */
   const [formLevel, setFormLevel] = useState(1);
   const [formHour, setFormHour] = useState(1);
@@ -26,8 +26,8 @@ function Finder({ levels, time }) {
   const [coursesFinded, setCoursesFinded] = useState([]);
   const [speech, setSpeech] = useState(
     `Olá caríssim@ alun@, seja muito bem-vindo ao Alura-Finder.
-     Eu sou o Paulo Silveira, CEO da Alura e vou encontrar os cursos ideais pra você!`
-  );
+    Eu sou o Paulo Silveira, CEO da Alura e vou encontrar os cursos ideais pra você!`
+    );
 
   async function handleSearch(event, data) {
     event.preventDefault();
@@ -41,7 +41,6 @@ function Finder({ levels, time }) {
     const allCourses = await coursesRepository.getAll();
     const findedCourses = allCourses.filter((course) => (
       course.nivel === data.formLevel &&
-      course.tempo_estimado === Number(data.formHour) &&
       course.nome.toLowerCase().includes(data.formKeyword.toString().toLowerCase())
     ));
 
@@ -54,7 +53,7 @@ function Finder({ levels, time }) {
       if (findedCourses.length > 0) {
         setCoursesFinded(findedCourses);
         setSpeech(findedCourses.length > 1 
-          ? 'Encontrei! Listei os cursos que achei logo abaixo.'
+          ? 'Encontrei! Aqui está uma lista dos cursos que achei.'
           : 'Encontrei um! Consegui achar apenas um curso com essas especificações. Da uma olhada...'
         )
 
@@ -115,7 +114,7 @@ function Finder({ levels, time }) {
                 </label>
               </FormField>
 
-              <FormField>
+              {/* <FormField>
                 <label>
                   Mais ou menos quantas horas de curso é do seu interessante?
                   <select
@@ -124,13 +123,13 @@ function Finder({ levels, time }) {
                     onChange={(event) => setFormHour(event.target.value)}
                   >
                     {
-                      time.map((hour) => (
+                      times.map((hour) => (
                         <option key={hour} value={hour}>{hour}</option>
                       ))
                     }
                   </select>
                 </label>
-              </FormField>
+              </FormField> */}
 
               <FormField>
                 <label>

@@ -4,6 +4,7 @@ export const FinderSection = styled.section`
   background-color: var(--primary);
   width: 100%;
   height: 91vh;
+  flex: 1;
 
   color: var(--white);
 
@@ -20,13 +21,15 @@ export const FinderContainer = styled.div`
 
 export const FinderContent = styled.div`
   display: flex;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-start;
 `;
 
 export const PauloSilveira = styled.div`
   position: relative;
 
-  width: 40%;
+  margin-top: 50px;
+  width: 35%;
 `;
 
 PauloSilveira.Body = styled.img`
@@ -69,6 +72,7 @@ export const Speech = styled.div`
   background-color: var(--white);
   border-radius: 12px;
   width: 60%;
+  max-width: 550px;
   padding: 2em;
 
   position: relative;
@@ -97,7 +101,7 @@ export const Speech = styled.div`
 
   h1 {
     font-size: 0.9rem;
-    line-height: 1.5rem;
+    line-height: 1.7rem;
 
     @media (min-width: 780px) {
       font-size: 1rem;
@@ -111,12 +115,12 @@ export const FormField = styled.div`
   display: flex;
   flex-direction: column;
 
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 
   select,
   input {
     display: block;
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: 2px 4px;
     margin-top: 5px;
     outline: 0;
@@ -126,14 +130,20 @@ export const FormField = styled.div`
   input {
     width: 100%;
   }
+
+  @media (min-width: 780px) {
+    font-size: 0.9rem;
+
+    select,
+    input {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export const Button = styled.button`
-  position: fixed;
-  bottom: 5px;
-  left: 10px;
   background-color: var(--secondary);
-  padding: 16px 9px;
+  padding: 12px 9px;
   width: 8rem;
   border: none;
   border-radius: 4px;
@@ -152,6 +162,8 @@ export const Button = styled.button`
 
   @media (min-width: 780px) {
     position: initial;
+    padding-top: 16px;
+    padding-bottom: 16px;
     width: 10rem;
 
     font-size: 1.3rem;
