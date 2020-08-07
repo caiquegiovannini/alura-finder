@@ -11,10 +11,14 @@ export const CourseContainer = styled.div`
 `;
 
 export const CourseContent = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 4fr 2fr 1fr;
 
-  h1 {
-    font-size: 0.4rem;
+  h2, h3 {
+    font-size: 0.95rem;
+  }
+
+  h3 {
+    padding-left: 20px;
   }
 `;

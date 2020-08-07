@@ -18,17 +18,22 @@ import PauloBase from '../../assets/img/paulo-base.png';
 import PauloFace1 from '../../assets/img/rosto1.png';
 import PauloFace2 from '../../assets/img/rosto2.png';
 
-function Finder({ levels, times }) {
+function Finder({ levels }) {
   /* FORM STATES */
   const [formLevel, setFormLevel] = useState(1);
-  const [formHour, setFormHour] = useState(1);
   const [formKeyword, setFormKeyword] = useState('');
   
   const [coursesFinded, setCoursesFinded] = useState([]);
   const [speech, setSpeech] = useState(
     `Olá caríssim@ alun@, seja muito bem-vindo ao Alura-Finder.
     Eu sou o Paulo Silveira, CEO da Alura e vou encontrar os cursos ideais pra você!`
-    );
+  );
+
+  function getLevelName(levels, formLevel) {
+    const levelChoosen = levels.filter((level) => level.id === formLevel);
+
+    return levelChoosen[0].name;
+  }
 
   async function handleSearch(event, data) {
     event.preventDefault();
@@ -107,7 +112,7 @@ function Finder({ levels, times }) {
                     </ListLabels.Label>
                   </ListLabels>
                   <Speech.List>
-                    <CoursesList courses={coursesFinded} />
+                    <CoursesList courses={coursesFinded} levelName={getLevelName(levels, formLevel)} />
                   </Speech.List>
                 </>
               )
@@ -135,23 +140,6 @@ function Finder({ levels, times }) {
                 </label>
               </FormField>
 
-              {/* <FormField>
-                <label>
-                  Mais ou menos quantas horas de curso é do seu interessante?
-                  <select
-                    name={"hour"}
-                    value={formHour}
-                    onChange={(event) => setFormHour(event.target.value)}
-                  >
-                    {
-                      times.map((hour) => (
-                        <option key={hour} value={hour}>{hour}</option>
-                      ))
-                    }
-                  </select>
-                </label>
-              </FormField> */}
-
               <FormField>
                 <label>
                   Agora me fala uma palavra chave do tema que tem interesse em aprender...
@@ -165,7 +153,7 @@ function Finder({ levels, times }) {
                 </label>
               </FormField>
 
-              <Button onClick={(event) => handleSearch(event, { formLevel, formHour, formKeyword })}>
+              <Button onClick={(event) => handleSearch(event, { formLevel, formKeyword })}>
                 Pode procurar
               </Button>
             </form> 
