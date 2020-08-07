@@ -14,22 +14,36 @@ export const FinderSection = styled.section`
 `;
 
 export const FinderContainer = styled.div`
+  height: 100%;
   padding-left: 5%;
   padding-right: 5%;
-  padding-top: 10%;
+  padding-top: 5%;
 `;
 
 export const FinderContent = styled.div`
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+
+  @media (min-width: 780px) {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
 `;
 
 export const PauloSilveira = styled.div`
   position: relative;
 
-  margin-top: 50px;
-  width: 35%;
+  margin-top: 25px;
+  width: 50%;
+
+  @media (min-width: 780px) {
+    margin-top: 50px;
+    width: 30%;
+  }
 `;
 
 PauloSilveira.Body = styled.img`
@@ -71,8 +85,7 @@ PauloSilveira.HeadHappy = styled.img`
 export const Speech = styled.div`
   background-color: var(--white);
   border-radius: 12px;
-  width: 60%;
-  max-width: 550px;
+  max-height: 336px;
   padding: 2em;
 
   position: relative;
@@ -81,10 +94,6 @@ export const Speech = styled.div`
   color: #000;
   font-size: 0.4rem;
 
-  @media (min-width: 780px) {
-    font-size: 1rem;
-  }
-
   &:after {
     content: '';
     position: absolute;
@@ -92,8 +101,8 @@ export const Speech = styled.div`
 
     width: 30px;
     height: 69px;
-    top: 12%;
-    left: 0;
+    top: -21px;
+    left: 169px;
 
     transform: rotate(45deg);
     z-index: -1;
@@ -101,11 +110,50 @@ export const Speech = styled.div`
 
   h1 {
     font-size: 0.9rem;
-    line-height: 1.7rem;
+    line-height: 1.5rem;
+  }
 
-    @media (min-width: 780px) {
-      font-size: 1rem;
+  @media (min-width: 780px) {
+    font-size: 1rem;
+    width: 60%;
+    max-width: 550px;
+    max-height: initial;
+
+    :after {
+      top: 12%;
+      left: 0;
     }
+
+    h1 {
+      font-size: 1rem;
+      line-height: 1.7rem;
+    }
+  }
+`;
+
+Speech.List = styled.div`
+  height: 60%;
+  overflow: auto;
+
+  @media (min-width: 780px) {
+    height: 75%;
+  }
+`;
+
+export const ListLabels = styled.div`
+  display: grid;
+  grid-template-columns: 4fr 2fr 1fr;
+  padding: 1rem;
+  margin-top: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 4px 4px 20px 0 rgba(120,135,182,.1);
+`;
+
+ListLabels.Label = styled.div`
+  width: 100%;
+
+  h2 {
+    font-size: 0.85rem;
   }
 `;
 
@@ -144,10 +192,10 @@ export const FormField = styled.div`
 export const Button = styled.button`
   background-color: var(--secondary);
   padding: 12px 9px;
-  width: 8rem;
+  width: 100%;
   border: none;
   border-radius: 4px;
-  margin-top: 30px;
+  margin-top: 20px;
   outline: 0;
 
   color: white;
@@ -165,6 +213,7 @@ export const Button = styled.button`
     padding-top: 16px;
     padding-bottom: 16px;
     width: 10rem;
+    margin-top: 30px;
 
     font-size: 1.3rem;
   }

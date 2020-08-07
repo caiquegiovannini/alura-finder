@@ -9,6 +9,7 @@ import {
   FinderContent,
   PauloSilveira,
   Speech,
+  ListLabels,
   FormField,
   Button
 } from './styles';
@@ -53,7 +54,7 @@ function Finder({ levels, times }) {
       if (findedCourses.length > 0) {
         setCoursesFinded(findedCourses);
         setSpeech(findedCourses.length > 1 
-          ? 'Encontrei! Aqui está uma lista dos cursos que achei.'
+          ? `Encontrei! Aqui está uma lista dos ${findedCourses.length} cursos que achei.`
           : 'Encontrei um! Consegui achar apenas um curso com essas especificações. Da uma olhada...'
         )
 
@@ -69,6 +70,7 @@ function Finder({ levels, times }) {
       }
 
       speechElement.setAttribute('style', 'transform: scale(1); transition: 700ms;');
+      speechElement.setAttribute('style', 'max-width: 100%; height: 90%;');
     }, 1150);
       
   }
@@ -86,10 +88,29 @@ function Finder({ levels, times }) {
 
           <Speech id="speech">
             <h1>{speech}</h1>
-
+            
             {
               coursesFinded.length !== 0 &&
-                (<CoursesList courses={coursesFinded} />)
+              (
+                <>
+                  <ListLabels>
+                    <ListLabels.Label>
+                      <h2>Nome</h2>
+                    </ListLabels.Label>
+
+                    <ListLabels.Label>
+                      <h2>Nível</h2>
+                    </ListLabels.Label>
+
+                    <ListLabels.Label>
+                      <h2>Duração</h2>
+                    </ListLabels.Label>
+                  </ListLabels>
+                  <Speech.List>
+                    <CoursesList courses={coursesFinded} />
+                  </Speech.List>
+                </>
+              )
             }
 
             <a href="/" id="retry" style={{ display:"none" }}>

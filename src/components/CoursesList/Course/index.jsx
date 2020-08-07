@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { CourseContainer } from './styles';
+import { CourseContainer, CourseContent } from './styles';
 
 function Course({ course }) {
   return (
     <CourseContainer>
-      <h1>{course.nome}</h1>
+      <CourseContent>
+        <h1>{course.nome}</h1>
+      </CourseContent>
     </CourseContainer>
   );
 }
