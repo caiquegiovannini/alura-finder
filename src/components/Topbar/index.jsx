@@ -19,8 +19,8 @@ function Topbar() {
               <span>Cursos</span>
             </Link>
 
-            <Link to="/meuscursos">
-              <span>Meus Cursos</span>
+            <Link to="/completed">
+              <span>Finalizados</span>
             </Link>
 
             <a href="https://www.alura.com.br/">

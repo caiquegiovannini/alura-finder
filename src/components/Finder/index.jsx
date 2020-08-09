@@ -68,7 +68,6 @@ function Finder({ levels }) {
       } else {
         setSpeech(`
           Poxa vida, não encontrei nenhum curso com as especificações que você passou.
-          Por isso peguei todos os cursos do nível que você escolheu. Da uma olhada...
         `)
 
         retryElement.setAttribute('style', 'display: initial; color: var(--primary); font-weight: bold;');
