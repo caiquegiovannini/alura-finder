@@ -10,7 +10,7 @@ export const CourseContainer = styled.div`
   cursor: pointer;
 `;
 
-export const CourseContent = styled.div`
+export const CourseContent = styled.a`
   display: grid;
   grid-template-columns: 4fr 2fr 1fr;
 
